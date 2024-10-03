@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DestinyConnected - Página Inicial</title>
+</head>
+<body>
+    <header>
+        <h1>Bem-vindo ao DestinyConnected!</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'estrelas' %}">Catálogo de Estrelas</a></li>
+                <li><a href="{% url 'forum' %}">Fórum</a></li>
+                <li><a href="{% url 'constelacoes' %}">Constelações</a></li>
+                <li><a href="{% url 'pesquisa' %}">Pesquisa</a></li>
+                <li><a href="{% url 'loja' %}">Loja</a></li>
+                <li><a href="{% url 'login' %}">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section>
+        <h2>Produtos em Destaque</h2>
+        <ul>
+            {% for produto in produtos %}
+                <li>{{ produto.nome }} - R$ {{ produto.preco }}</li>
+            {% empty %}
+                <li>Nenhum produto disponível.</li>
+            {% endfor %}
+        </ul>
+    </section>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Estrelas</title>
+</head>
+<body>
+    <header>
+        <h1>Catálogo de Estrelas</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'index' %}">Início</a></li>
+                <li><a href="{% url 'forum' %}">Fórum</a></li>
+                <li><a href="{% url 'constelacoes' %}">Constelações</a></li>
+                <li><a href="{% url 'pesquisa' %}">Pesquisa</a></li>
+                <li><a href="{% url 'loja' %}">Loja</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section>
+        <h2>Estrelas</h2>
+        <ul>
+            {% for estrela in estrelas %}
+                <li>
+                    <a href="{% url 'estrela_detail' pk=estrela.id %}">{{ estrela.nome }}</a>
+                </li>
+            {% empty %}
+                <li>Nenhuma estrela disponível.</li>
+            {% endfor %}
+        </ul>
+    </section>
+</body>
+</html>

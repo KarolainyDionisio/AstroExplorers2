@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesquisa</title>
+</head>
+<body>
+    <header>
+        <h1>Pesquisa</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'index' %}">Início</a></li>
+                <li><a href="{% url 'estrelas' %}">Catálogo de Estrelas</a></li>
+                <li><a href="{% url 'forum' %}">Fórum</a></li>
+                <li><a href="{% url 'constelacoes' %}">Constelações</a></li>
+                <li><a href="{% url 'loja' %}">Loja</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section>
+        <form method="get" action="{% url 'pesquisa' %}">
+            <input type="text" name="termo" placeholder="Pesquise aqui" value="{{ termo }}">
+            <button type="submit">Buscar</button>
+        </form>
+
+        <h2>Resultados da Pesquisa</h2>
+        <ul>
+            {% for resultado in pesquisa_resultados %}
+                <li>{{ resultado.titulo }} - {{ resultado.descricao }}</li>
+            {% empty %}
+                <li>Nenhum resultado encontrado.</li>
+            {% endfor %}
+        </ul>
+    </section>
+</body>
+</html>

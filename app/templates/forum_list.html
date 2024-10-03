@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fórum</title>
+</head>
+<body>
+    <header>
+        <h1>Fórum</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'index' %}">Início</a></li>
+                <li><a href="{% url 'estrelas' %}">Catálogo de Estrelas</a></li>
+                <li><a href="{% url 'constelacoes' %}">Constelações</a></li>
+                <li><a href="{% url 'pesquisa' %}">Pesquisa</a></li>
+                <li><a href="{% url 'loja' %}">Loja</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section>
+        <h2>Tópicos do Fórum</h2>
+        <ul>
+            {% for topico in topicos %}
+                <li>
+                    <a href="{% url 'topico_detail' pk=topico.id %}">{{ topico.titulo }}</a>
+                </li>
+            {% empty %}
+                <li>Nenhum tópico no fórum.</li>
+            {% endfor %}
+        </ul>
+    </section>
+</body>
+</html>

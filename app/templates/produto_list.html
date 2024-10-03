@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loja</title>
+</head>
+<body>
+    <header>
+        <h1>Loja - Produtos</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'index' %}">Início</a></li>
+                <li><a href="{% url 'estrelas' %}">Catálogo de Estrelas</a></li>
+                <li><a href="{% url 'forum' %}">Fórum</a></li>
+                <li><a href="{% url 'constelacoes' %}">Constelações</a></li>
+                <li><a href="{% url 'pesquisa' %}">Pesquisa</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section>
+        <h2>Produtos disponíveis</h2>
+        <ul>
+            {% for produto in produtos %}
+                <li>{{ produto.nome }} - R$ {{ produto.preco }}</li>
+            {% empty %}
+                <li>Nenhum produto disponível.</li>
+            {% endfor %}
+        </ul>
+    </section>
+</body>
+</html>

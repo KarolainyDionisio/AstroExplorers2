@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ estrela.nome }}</title>
+</head>
+<body>
+    <header>
+        <h1>{{ estrela.nome }}</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'estrelas' %}">Voltar para o Catálogo</a></li>
+                <li><a href="{% url 'forum' %}">Fórum</a></li>
+                <li><a href="{% url 'constelacoes' %}">Constelações</a></li>
+                <li><a href="{% url 'pesquisa' %}">Pesquisa</a></li>
+                <li><a href="{% url 'loja' %}">Loja</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section>
+        <h2>Detalhes da Estrela</h2>
+        <p><strong>Magnitude:</strong> {{ estrela.magnitude }}</p>
+        <p><strong>Tipo Espectral:</strong> {{ estrela.tipo_espectral }}</p>
+        <p><strong>Curiosidades:</strong> {{ estrela.curiosidades }}</p>
+    </section>
+</body>
+</html>
