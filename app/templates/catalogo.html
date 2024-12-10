@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Estrelas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(180deg, #000428, #004e92);
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            border-bottom: 5px solid #4CAF50;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            border-radius: 50px;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            border-radius: 25px;
+            transition: background-color 0.3s;
+        }
+
+        nav ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
+        section {
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        section h2 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .filters {
+            margin-bottom: 20px;
+        }
+
+        .filters input,
+        .filters select {
+            padding: 10px;
+            font-size: 1em;
+            margin-right: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            color: #333;
+        }
+
+        .filters button {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .filters button:hover {
+            background-color: #45a049;
+        }
+
+        .star-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .star-list li {
+            background-color: rgba(255, 255, 255, 0.1);
+            margin: 15px 0;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: left;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .star-list li:hover {
+            transform: scale(1.05);
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .star-list li h3 {
+            font-size: 1.8em;
+            margin: 0;
+            font-weight: bold;
+        }
+
+        .star-list li p {
+            margin: 5px 0;
+            font-size: 1.1em;
+        }
+
+        .star-list li p strong {
+            color: #4CAF50;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Catálogo de Estrelas</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="forum.html">Forum</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="loja.html">Loja</a></li>
+                <li><a href="pesquisa.html">Pesquisa</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section>
+        <h2>Estrelas</h2>
+
+        <div class="filters">
+            <form method="GET" action="">
+                <input type="text" name="nome" placeholder="Buscar por nome" value="{{ request.GET.nome }}"/>
+                <select name="tipo">
+                    <option value="">Filtrar por tipo espectral</option>
+                    <option value="O" {% if request.GET.tipo == 'O' %}selected{% endif %}>Tipo O</option>
+                    <option value="B" {% if request.GET.tipo == 'B' %}selected{% endif %}>Tipo B</option>
+                    <option value="A" {% if request.GET.tipo == 'A' %}selected{% endif %}>Tipo A</option>
+                    <option value="F" {% if request.GET.tipo == 'F' %}selected{% endif %}>Tipo F</option>
+                    <option value="G" {% if request.GET.tipo == 'G' %}selected{% endif %}>Tipo G</option>
+                    <option value="K" {% if request.GET.tipo == 'K' %}selected{% endif %}>Tipo K</option>
+                    <option value="M" {% if request.GET.tipo == 'M' %}selected{% endif %}>Tipo M</option>
+                </select>
+                <button type="submit">Filtrar</button>
+            </form>
+        </div>
+
+        <ul class="star-list">
+            {% for catalogo in catalogos %}
+                <li>
+                    <h3>{{ catalogo.nome }}</h3>
+                    <p><strong>Magnitude:</strong> {{ catalogo.magnitude }}</p>
+                    <p><strong>Tipo Espectral:</strong> {{ catalogo.tipo_espectral }}</p>
+                    <p><strong>Curiosidades:</strong> {{ catalogo.curiosidades }}</p>
+                </li>
+            {% empty %}
+                <li>Nenhuma estrela encontrada com os critérios informados.</li>
+            {% endfor %}
+        </ul>
+    </section>
+
+</body>
+</html>

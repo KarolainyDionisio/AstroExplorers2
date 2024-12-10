@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galáxias - AstroExplorers</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(180deg, #000428, #004e92);
+        color: white;
+        margin: 0;
+        padding: 0;
+    }
+
+    header {
+        text-align: center;
+        padding: 20px;
+        background: rgba(0, 0, 0, 0.7);
+        border-bottom: 5px solid #4CAF50;
+    }
+
+    h1 {
+        margin: 0;
+        font-size: 2.5em;
+        text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    nav {
+        margin-top: 20px;
+    }
+
+    nav ul {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        border-radius: 50px;
+        overflow: hidden;
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(10px);
+    }
+
+    nav ul li {
+        margin: 0 15px;
+    }
+
+    nav ul li a {
+        text-decoration: none;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 25px;
+        transition: background-color 0.3s;
+    }
+
+    nav ul li a:hover {
+        background-color: rgba(255, 255, 255, 0.3);
+    }
+
+    section {
+        text-align: center;
+        padding: 20px;
+    }
+
+    h2 {
+        font-size: 1.8em;
+        margin-top: 20px;
+    }
+
+    .galaxy-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 20px;
+    }
+
+    .galaxy-info img {
+        width: 80%;
+        max-width: 900px;
+        height: auto;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .galaxy-info p {
+        max-width: 800px;
+        margin-top: 20px;
+        font-size: 1.2em;
+        line-height: 1.6;
+    }
+
+</style>
+<body>
+    <header>
+        <h1>Galáxias - AstroExplorers</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="catalogo.html">Catálogo</a></li>
+                <li><a href="forum.html">Fórum</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="loja.html">Loja</a></li>
+                <li><a href="pesquisa.html">Pesquisa</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section>
+        <h2>Galáxias Conhecidas</h2>
+
+        <div class="galaxy-info">
+            <img src="https://www.infoescola.com/wp-content/uploads/2013/01/andromeda.jpg" alt="Galáxia de Andrômeda">
+            <h3>Galáxia de Andrômeda</h3>
+            <p>Uma das galáxias mais próximas da Via Láctea, famosa por seu tamanho e luminosidade. Está a aproximadamente 2,5 milhões de anos-luz da Terra e é visível a olho nu em uma noite clara.</p>
+        </div>
+
+        <div class="galaxy-info">
+            <img src="https://static.mundoeducacao.uol.com.br/mundoeducacao/conteudo_legenda/59a513af854628e9c28a0018fcd74bde.jpg" alt="Via Láctea">
+            <h3>Via Láctea</h3>
+            <p>A galáxia que abriga o nosso Sistema Solar, repleta de estrelas, planetas, e mistérios. Com mais de 100 bilhões de estrelas, é uma das galáxias mais estudadas da astronomia.</p>
+        </div>
+
+        <div class="galaxy-info">
+            <img src="https://cdn.eso.org/images/screen/eso1424a.jpg" alt="Galáxia de Triângulo">
+            <h3>Galáxia de Triângulo</h3>
+            <p>Uma galáxia espiral localizada no Grupo Local, ao lado da Via Láctea e Andrômeda. Seu formato é claramente visível através de telescópios amadores e é um objeto popular para observações astronômicas.</p>
+        </div>
+    </section>
+</body>
+</html>
